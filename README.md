@@ -1,6 +1,7 @@
 # SUPERmercado
 
-Trabalho: Simulação baseada em eventos 
+Trabalho: Simulação baseada em eventos
+Participantes: Leo, Vivi e Pocas
 
 - os caixas são um vetor cujo os elementos são definidos por um tipo de dado que é heterogêneo → struct
     - status: atendimento/ocioso/suspenso
