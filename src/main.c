@@ -8,8 +8,7 @@ int main(void) {
    
     cliente Cliente = criarCliente(1, 2, 10, 5);
 
-    fila* f;
-    f = criarFila();
+    fila* f = criarFila();;
 
     inserirFila(f, Cliente);
     inserirFila(f, Cliente);
@@ -17,13 +16,13 @@ int main(void) {
 
     removeFila(f);
 
-    caixa *Caixa = criarCaixa(0,1,2,3);
+    caixa Caixa = criarCaixa(0,1,2,3);
 
-    mostrarCaixa(*Caixa);
+    mostrarCaixa(Caixa);
 
-    inserirCaixa(Caixa, Cliente);
+    inserirCaixa(&Caixa, Cliente);
 
-    mostrarCaixa(*Caixa);
+    mostrarCaixa(Caixa);
 
     return 0;
 }
