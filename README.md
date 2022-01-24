@@ -1,6 +1,6 @@
 # Projeto AED2 → Simulação de Super Mercado.
 
-##Objetos
+### Objetos
 
 - Caixas (PVDs ou Ponto de Vendas)
     - Descrição: Os caixas são um vetor cujo os elementos são definidos por um tipo de dado que é heterogêneo → struct.
@@ -25,7 +25,7 @@
         - Chegada, o tempo de chegada do cliente, em segundos.
         - Itens, a quantidade de itens a ser comprada.
         
-##Eventos
+### Eventos
 
 - Chegada de um Cliente.
     - Ação: inserir o cliente na fila.
