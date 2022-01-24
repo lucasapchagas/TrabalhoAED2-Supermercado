@@ -20,7 +20,7 @@
                 Espera no maximo X minutos no expresso (fila + atendimento), depois abandona as compras.
             3. Eu nao quero comprar, mas comparei se o atendimento for agil.
                 Espera no maximo Y minutos na fila, e no maximo Z minutos no atendimento, depois abandona as compras.
-        char pagamento  -> Tipo de pagamento, podenso ser 2 tipos.
+        char pagamento  -> Tipo de pagamento, podendo ser 2 tipos.
             1. Cartão
             2. Dinheiro
         unsigned int chegada    -> O tempo de chegada do cliente, em segundos.

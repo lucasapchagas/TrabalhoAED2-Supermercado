@@ -11,7 +11,7 @@ typedef struct caixa{
     int tempoServico;
 } caixa;
 
-caixa criarCaixa(char statusVendedor, char fatorAgilidade, int identificacao, int tempoServico);
+caixa* criarCaixa(char statusVendedor, char fatorAgilidade, int identificacao, int tempoServico);
 
 void inserirCaixa(caixa* c, cliente Cliente);
 
