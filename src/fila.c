@@ -27,7 +27,7 @@ void inserirFila(fila* f, cliente c) {
     f->fim = no;
 }
 
-cliente removeCliente(fila *f) {
+cliente removeFila(fila *f) {
 
     if (f->prim == NULL) {
         return;

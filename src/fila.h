@@ -1,3 +1,6 @@
+#ifndef FILA_H
+#define FILA_H
+
 #include "cliente.h"
 
 typedef struct No No;
@@ -17,11 +20,10 @@ fila* criarFila();
 
 void inserirFila(fila* f, cliente c);
 
-cliente removeCliente(fila *f);
+cliente removeFile(fila *f);
 
 void mostrarFila(fila* f);
 
 int haElementos(fila *p);
 
-
-
+#endif

@@ -15,9 +15,7 @@ int main(void) {
     inserirFila(f, Cliente);
     inserirFila(f, Cliente);
 
-    removeCliente(f);
-
-    mostrarFila(f);
+    removeFila(f);
 
     caixa Caixa = criarCaixa(0,1,2,3);
 

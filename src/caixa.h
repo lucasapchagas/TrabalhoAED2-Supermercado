@@ -1,3 +1,6 @@
+#ifndef CAIXA_H
+#define CAIXA_H
+
 #include "cliente.h"
 
 typedef struct caixa{
@@ -13,3 +16,5 @@ caixa criarCaixa(char statusVendedor, char fatorAgilidade, int identificacao, in
 void inserirCaixa(caixa* c, cliente Cliente);
 
 void mostrarCaixa(caixa c);
+
+#endif
