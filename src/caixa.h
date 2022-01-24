@@ -4,7 +4,7 @@
 #include "cliente.h"
 
 typedef struct caixa{
-    cliente* vetor;
+    cliente *vetor;
     char statusVendedor;
     char fatorAgilidade;
     int identificacao;

@@ -6,7 +6,7 @@
 caixa criarCaixa(char statusVendedor, char fatorAgilidade, int identificacao, int tempoServico) {
 
     caixa c;
-    c.vetor = malloc(sizeof(cliente));
+    c.vetor = NULL;
     c.statusVendedor = statusVendedor;
     c.fatorAgilidade = fatorAgilidade;
     c.identificacao = identificacao;
@@ -17,7 +17,7 @@ caixa criarCaixa(char statusVendedor, char fatorAgilidade, int identificacao, in
 
 void inserirCaixa(caixa* c, cliente Cliente) {
     
-    if (c->vetor->tipo != 0) {
+    if (c->vetor != NULL) {
         return;
     }
 
@@ -26,10 +26,10 @@ void inserirCaixa(caixa* c, cliente Cliente) {
 
 void mostrarCaixa(caixa c) {
 
-    if (c.vetor->tipo != 0) {
-        printf("Cliente no caixa: SIM\n");
-    } else {
+    if (c.vetor == NULL) {
         printf("Cliente no caixa: NAO\n");
+    } else {
+        printf("Cliente no caixa: SIM\n");
     }
 
     printf("Status do Caixa: %d\n", c.statusVendedor);
