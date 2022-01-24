@@ -28,17 +28,30 @@ void inserirFila(fila* f, cliente c) {
 }
 
 cliente removeCliente(fila *f) {
+
+    if (f->prim == NULL) {
+        return;
+    }
+
     cliente c = f->prim->info;
     f->prim = f->prim->prox;
+
     return c;
 }
 
 void mostrarFila(fila* f) {
     No* aux = f->prim;
-    while(aux) {
-        mostrarCliente(aux->info);
-        aux = aux->prox;
+ 
+    if (aux) {
+        while(aux) {
+            mostrarCliente(aux->info);
+            aux = aux->prox;
+        }
     }
+    else {
+        printf("Fila vazia.\n");
+    }
+
 }
 
 int haElementos(fila *p) {

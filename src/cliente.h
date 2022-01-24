@@ -1,3 +1,5 @@
+#ifndef CLIENTE_H
+#define CLIENTE_H
 /* Tipos Exportados */
 
     typedef struct cliente {
@@ -39,3 +41,5 @@
     Exemplo: mostrarCliente(Cliente);
     Mostra os dados referentes a um cliente indicado. */
     void mostrarCliente(cliente c);
+
+#endif

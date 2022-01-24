@@ -17,9 +17,11 @@ fila* criarFila();
 
 void inserirFila(fila* f, cliente c);
 
+cliente removeCliente(fila *f);
+
 void mostrarFila(fila* f);
 
 int haElementos(fila *p);
 
-cliente removeCliente(fila *f);
+
 
