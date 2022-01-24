@@ -28,5 +28,14 @@
     */
     cliente criarCliente(char tipo, char pagamento, unsigned int chegada, unsigned int itens);
 
-    /* Mostra os dados referentes a um cliente indicado. */
+    /* Função mostrarCliente() 
+    Argumentos:
+        cliente c   -> Recebe um objeto cliente
+    Impressão:
+        Tipo de Cliente: X
+        Tipo de Pagamento: Y
+        Hora de Chegada: Z
+        Quantidade de itens: N
+    Exemplo: mostrarCliente(Cliente);
+    Mostra os dados referentes a um cliente indicado. */
     void mostrarCliente(cliente c);
