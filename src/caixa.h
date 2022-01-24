@@ -4,14 +4,14 @@
 #include "cliente.h"
 
 typedef struct caixa{
-    cliente* vetor;
+    cliente *vetor;
     char statusVendedor;
     char fatorAgilidade;
     int identificacao;
     int tempoServico;
 } caixa;
 
-caixa* criarCaixa(char statusVendedor, char fatorAgilidade, int identificacao, int tempoServico);
+caixa criarCaixa(char statusVendedor, char fatorAgilidade, int identificacao, int tempoServico);
 
 void inserirCaixa(caixa* c, cliente Cliente);
 
