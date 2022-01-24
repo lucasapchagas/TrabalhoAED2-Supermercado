@@ -1,11 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "cliente.h"
+
+#include "fila.h"
 
 int main(void) {
    
     cliente c = criarCliente(1, 2, 10, 5);
-    mostrarCliente(c);
+
+    fila* f;
+    f = criarFila();
+
+    inserirFila(f, c);
+
+    mostrarFila(f);
 
     return 0;
 }

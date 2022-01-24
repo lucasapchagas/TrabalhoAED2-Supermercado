@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "cliente.h"
 
 cliente criarCliente(char tipo, char pagamento, unsigned int chegada, unsigned int itens) {
