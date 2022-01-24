@@ -1,2 +1,6 @@
 # Ignorando configurações especificas do vscode.
 .vscode/
+
+# Ignorando conteudos da pasta out
+
+out/**
