@@ -1,9 +1,9 @@
 #include "cliente.h"
 
-typedef struct pvd{
+typedef struct caixa{
     cliente vetor[1];
     char statusVendedor;
     char fatorAgilidade;
-    int identificao;
+    int identificacao;
     int tempoServico;
-} pvd;
+} caixa;
