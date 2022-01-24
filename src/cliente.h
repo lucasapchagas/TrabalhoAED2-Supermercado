@@ -26,8 +26,7 @@
         unsigned int chegada    -> O tempo de chegada do cliente, em segundos.
         unsigned int itens  -> A quantidade de itens a ser comprada.
     Exemplo:
-        cliente c = criarCLiente(tipo, pagamento, chegada, itens);
-    */
+        cliente c = criarCLiente(tipo, pagamento, chegada, itens); */
     cliente criarCliente(char tipo, char pagamento, unsigned int chegada, unsigned int itens);
 
     /* Função mostrarCliente() 
