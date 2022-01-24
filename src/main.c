@@ -17,13 +17,13 @@ int main(void) {
 
     removeFila(f);
 
-    caixa Caixa = criarCaixa(0,1,2,3);
+    caixa *Caixa = criarCaixa(0,1,2,3);
 
-    mostrarCaixa(Caixa);
+    mostrarCaixa(*Caixa);
 
-    inserirCaixa(&Caixa, Cliente);
+    inserirCaixa(Caixa, Cliente);
 
-    mostrarCaixa(Caixa);
+    mostrarCaixa(*Caixa);
 
     return 0;
 }

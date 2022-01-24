@@ -3,27 +3,47 @@
 
 #include "cliente.h"
 
-typedef struct No No;
+/* Tipos exportados */
 
-struct No {
-    cliente info;
-    No* prox;
-};
+    typedef struct No No;
 
-typedef struct fila
-{
-    No* prim;
-    No* fim;
-} fila;
+    struct No {
+        cliente info;
+        No* prox;
+    };
 
-fila* criarFila();
+    typedef struct fila
+    {
+        No* prim;
+        No* fim;
+    } fila;
 
-void inserirFila(fila* f, cliente c);
 
-cliente removeFile(fila *f);
 
-void mostrarFila(fila* f);
+/* Funções */
 
-int haElementos(fila *p);
+/* Função criar fila
+    Exemplo:
+        fila* f = criarFila();
+    -Retorna o objeto fila.
+*/
+    fila* criarFila();
 
-#endif
+
+/* Função inserirFila()
+    Argumentos:
+        - fila* f -> recebe o objeto fila como argumento.
+        - cliente c -> recebe o objeto cliente como argumento.
+    Exemplo:
+        - inserirFila(fila* f, cliente c);
+    Recebe o ponteiro de uma fila e adiciona o objeto cliente nesta fila.
+*/
+    void inserirFila(fila* f, cliente c);
+
+    cliente removeFila(fila *f);
+
+    void mostrarFila(fila* f);
+
+    int haElementos(fila *p);
+
+    #endif
