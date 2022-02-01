@@ -7,6 +7,7 @@
         char pagamento;
         unsigned int chegada;
         unsigned int itens;
+        unsigned int tempoLimite;
     } cliente;
 
 /* Funções Exportadas */
