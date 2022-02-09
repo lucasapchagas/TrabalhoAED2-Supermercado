@@ -1,16 +1,14 @@
 #ifndef EVENTO_H
 #define EVENTO_H
 
-#include "cliente.h"
 #include "caixa.h"
-
 
 /* Tipos exportados */
 typedef struct evento{
     float tempo;
     char tipo;
     void* carga;
-};
+}evento;
 
 /* Funções Exportadas */
 
@@ -30,5 +28,6 @@ typedef struct evento{
             evento criarEvento(tipo,tempo,*cliente)
     */
     evento criarEvento(char tipo, int tempo, void* carga);
-#endif
 
+    void mostrarEvento (evento e);
+#endif

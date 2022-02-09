@@ -3,6 +3,7 @@
 
 #include "fila.h"
 #include "caixa.h"
+#include "evento.h"
 
 int main(void) {
    
@@ -23,6 +24,11 @@ int main(void) {
     inserirCaixa(&Caixa, Cliente);
 
     mostrarCaixa(Caixa);
+
+    evento e = criarEvento("C", 0, &Cliente);
+
+    mostrarEvento(e);
+    //tá dando segmentation fault
 
     return 0;
 }
