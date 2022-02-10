@@ -5,7 +5,7 @@
 
 /* Tipos exportados */
 typedef struct evento{
-    float tempo;
+    double tempo;
     char tipo;
     void* carga;
 }evento;
@@ -27,7 +27,7 @@ typedef struct evento{
         Exemplo:
             evento criarEvento(tipo,tempo,*cliente)
     */
-    evento criarEvento(char tipo, int tempo, void* carga);
+    evento criarEvento(char tipo, double tempo, void* carga);
 
     void mostrarEvento (evento e);
 #endif

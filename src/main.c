@@ -25,7 +25,7 @@ int main(void) {
 
     mostrarCaixa(Caixa);
 
-    evento e = criarEvento("C", 0, &Cliente);
+    evento e = criarEvento('C', 15.59, &Cliente);
 
     mostrarEvento(e);
     //tá dando segmentation fault

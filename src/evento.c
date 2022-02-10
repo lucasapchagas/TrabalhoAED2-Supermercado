@@ -3,7 +3,7 @@
 
 #include "evento.h"
 
-evento criarEvento (char tipo, int tempo, void* carga) {
+evento criarEvento (char tipo, double tempo, void* carga) {
     evento e;
 
     e.tipo = tipo;
@@ -15,13 +15,13 @@ evento criarEvento (char tipo, int tempo, void* carga) {
 }
 
 void mostrarEvento (evento e) {
-    printf("Tipo de Evento: %s\n", e.tipo);
-    printf("Hora de Chegada: %u\n", e.tempo);
+    printf("Tipo de Evento: %c\n", e.tipo);
+    printf("Hora de Chegada: %lf\n", e.tempo);
 
     if(e.carga == NULL) {
         printf("Evento sem carga\n");
     }
     else{
-        printf("Evento com carga");
+        printf("Evento com carga\n");
     }
 }
