@@ -7,17 +7,20 @@
 
 int main(void) {
    
-    cliente Cliente = criarCliente(1, 2, 10, 5);
+    cliente Cliente = criarCliente(28800.483711, 19, 2, 9);
+
+    mostrarCliente(Cliente);
+
+    unsigned caixas = 0;
+    unsigned agilidade = 100;
 
     fila* f = criarFila();;
 
     inserirFila(f, Cliente);
-    inserirFila(f, Cliente);
-    inserirFila(f, Cliente);
 
     removeFila(f);
 
-    caixa Caixa = criarCaixa(0,1,2,3);
+    caixa Caixa = criarCaixa(1, agilidade, &caixas);
 
     mostrarCaixa(Caixa);
 
@@ -25,10 +28,12 @@ int main(void) {
 
     mostrarCaixa(Caixa);
 
+    printf("%u\n", caixas);
+
     evento e = criarEvento('C', 15.59, &Cliente);
 
     mostrarEvento(e);
-    //tá dando segmentation fault
+    
 
     return 0;
 }

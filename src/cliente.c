@@ -3,21 +3,21 @@
 
 #include "cliente.h"
 
-cliente criarCliente(char tipo, char pagamento, unsigned int chegada, unsigned int itens) {
+cliente criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned tempoPagamento) {
     
     cliente c;
 
-    c.tipo = tipo;
-    c.pagamento = pagamento;
     c.chegada = chegada;
     c.itens = itens;
+    c.tipo = tipo;
+    c.tempoPagamento = tempoPagamento;
     
     return c;
 }
 
 void mostrarCliente(cliente c) {
-    printf("Tipo de Cliente: %d\n", c.tipo);
-    printf("Tipo de Pagamento: %d\n", c.pagamento);
-    printf("Hora de Chegada: %u\n", c.chegada);
+    printf("Hora de Chegada: %lf\n", c.chegada);
     printf("Quantidade de itens: %u\n", c.itens);
+    printf("Tipo de Cliente: %u\n", c.tipo);
+    printf("Tempo de Pagamento: %u\n", c.tempoPagamento);
 }

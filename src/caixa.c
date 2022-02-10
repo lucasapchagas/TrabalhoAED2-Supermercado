@@ -3,13 +3,13 @@
 
 #include "caixa.h"
 
-caixa criarCaixa(char statusVendedor, char fatorAgilidade, int identificacao, int tempoServico) {
+caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned *quantidadeCaixas) {
     caixa c;
     c.vetor = NULL;
-    c.statusVendedor = statusVendedor;
     c.fatorAgilidade = fatorAgilidade;
-    c.identificacao = identificacao;
-    c.tempoServico = tempoServico;
+    c.statusVendedor = 0;
+    c.tempoServico = 0;
+    c.identificacao = ++*quantidadeCaixas;
 
     return c;
 }
@@ -31,9 +31,9 @@ void mostrarCaixa(caixa c) {
         printf("Cliente no caixa: SIM\n");
     }
 
-    printf("Status do Caixa: %d\n", c.statusVendedor);
-    printf("Fator de Agilidade: %d\n", c.fatorAgilidade);
-    printf("Identificação: %d\n", c.identificacao);
-    printf("Tempo de serviço: %ds\n", c.tempoServico);
+    printf("Status do Caixa: %u\n", c.statusVendedor);
+    printf("Fator de Agilidade: %u\n", c.fatorAgilidade);
+    printf("Identificação: %u\n", c.identificacao);
+    printf("Tempo de serviço: %lf\n", c.tempoServico);
 
 }

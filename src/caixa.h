@@ -6,10 +6,10 @@
 /* Tipos exportados */
 typedef struct caixa{
     cliente *vetor;
-    char statusVendedor;
-    char fatorAgilidade;
-    int identificacao;
-    int tempoServico;
+    unsigned statusVendedor;
+    unsigned fatorAgilidade;
+    unsigned identificacao;
+    double tempoServico;
 } caixa;
 
 /* Funções exportadas*/
@@ -26,7 +26,7 @@ typedef struct caixa{
          caixa criarCaixa(char statusVendedor, char fatorAgilidade, int identificacao, int tempoServico)
         Retorna um elemento caixa com os argumentos como características do elemento.
 */
-caixa criarCaixa(char statusVendedor, char fatorAgilidade, int identificacao, int tempoServico);
+caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned *quantidadeCaixas);
 
 /*Função inserirCaixa():
     Argumentos:
