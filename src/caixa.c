@@ -3,13 +3,13 @@
 
 #include "caixa.h"
 
-caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned* quantidadeCaixas) {
+caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned identificacao) {
     caixa c;
     c.vetor = NULL;
-    c.fatorAgilidade = fatorAgilidade;
+    c.fatorAgilidade = fatorAgilidade * medidaDeAgilidade;
+    c.identificacao = identificacao;
     c.statusVendedor = 0;
-    c.tempoServico = 0;
-    c.identificacao = ++*quantidadeCaixas;
+    c.tempoServico = 0.0;
 
     return c;
 }

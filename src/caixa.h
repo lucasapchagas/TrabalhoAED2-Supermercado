@@ -25,7 +25,7 @@
         caixa criarCaixa(char unsigned int fatorAgilidade, unsigned int medidaDeAgilidade, unsigned int fatorAgilidade)
         Retorna um elemento caixa com os argumentos como características do elemento.
 */
-caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned* quantidadeCaixas);
+caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned identificacao);
 
 /*Função inserirCaixa():
     Argumentos:

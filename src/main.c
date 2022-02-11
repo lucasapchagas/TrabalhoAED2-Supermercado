@@ -5,47 +5,37 @@
 #include "caixa.h"
 #include "evento.h"
 #include "agenda.h"
+#include "leitor.h"
 
 int main() {
    
-    cliente Cliente = criarCliente(28800.483711, 19, 2, 9);
+    /* Setup inicial do programa */
+    
+    int nCaixas = 0;
+    int nCaixasNovas = 0;
+    short arquivoTipo;
+    caixa* caixasLivres;
+    caixa* caixasLivresNovos;  
+    lerSetupCaixas(&nCaixas, &nCaixas, &arquivoTipo, &caixasLivres, &caixasLivresNovos);
 
-    mostrarCliente(Cliente);
+    int velocidadeX, velocidadeY, velocidadeZ;
+    lerTemposDeEspera(&velocidadeX, &velocidadeY, &velocidadeZ);
 
-    unsigned caixas = 0;
-    unsigned agilidade = 100;
+    /* Fim do setup inicial */
 
-    fila* f = criarFila();;
+    //evento e = criarEvento('C', 15.59, &Cliente);
 
-    inserirFila(f, Cliente);
+    //mostrarEvento(e);
 
-    removeFila(f);
+    //agenda* Agenda = criarAgenda(0);
 
-    caixa Caixa = criarCaixa(1, agilidade, &caixas);
+    //compararElementos comparar;
 
-    mostrarCaixa(Caixa);
+    //imprimirElemento impressora;
 
-    inserirCaixa(&Caixa, Cliente);
-
-    mostrarCaixa(Caixa);
-
-    printf("%u\n", caixas);
-
-    evento e = criarEvento('C', 15.59, &Cliente);
-
-    mostrarEvento(e);
-
-    agenda* Agenda = criarAgenda(0);
-
-    compararElementos comparar;
-
-    imprimirElemento impressora;
-
-    inserirNaAgenda(Agenda, &e, comparar);
+    //inserirNaAgenda(Agenda, &e, comparar);
 
     //mostrarAgenda(Agenda, impressora);
-
-    
 
     return 0;
 }
