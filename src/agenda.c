@@ -3,10 +3,11 @@
 #include "agenda.h"
 
 agenda* criarAgenda (int tam){
-    agenda* a = malloc(sizeof(agenda));
-    a->tamanho = tam;
+    agenda* a = (agenda*) malloc(sizeof(agenda));
+    a->expande = (tam==0?1:0);
+    a->tamanho = (tam>0?tam:1);
     a->ocupacao = 0;
-    a->evento = malloc(sizeof(void*) *a->tamanho);
+    a->evento = (void*) malloc(sizeof(void*) *a->tamanho);
     return a;
 }
 
@@ -57,6 +58,10 @@ void* removerDaAgenda(agenda* a, compararElementos comparar){
 }
 
 void inserirNaAgenda(agenda* a, void* carga, compararElementos comparar){
+    if( (a->ocupacao == a->tamanho) && (a->expande) ){
+        a->tamanho = a->tamanho*2;
+        a->evento = realloc(a->evento, sizeof(void*) *a->tamanho);
+    }
     a->evento[a->ocupacao] = carga;
     int i = a->ocupacao;
     int j = (i-1)/2;

@@ -4,6 +4,7 @@
 #include "fila.h"
 #include "caixa.h"
 #include "evento.h"
+#include "agenda.h"
 
 int main(void) {
    
@@ -33,6 +34,17 @@ int main(void) {
     evento e = criarEvento('C', 15.59, &Cliente);
 
     mostrarEvento(e);
+
+    agenda* Agenda = criarAgenda(0);
+
+    compararElementos comparar;
+
+    imprimirElemento impressora;
+
+    inserirNaAgenda(Agenda, &e, comparar);
+
+    //mostrarAgenda(Agenda, impressora);
+
     
 
     return 0;
