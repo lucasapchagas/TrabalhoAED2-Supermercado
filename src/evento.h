@@ -8,7 +8,7 @@
         void* carga;
         double tempo;
         unsigned tipo;
-    }evento;
+    } evento;
 
 /* Funções Exportadas */
 

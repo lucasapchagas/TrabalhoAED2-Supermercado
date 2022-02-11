@@ -1,20 +1,19 @@
 /* Tipos Exportados */
-    typedef int (*CompararElementos)(void*, void*);
-    typedef void (ImprimirElemento)(void*);
+    typedef int (*compararElementos)(void*, void*);
+    typedef void (imprimirElemento)(void*);
 
     typedef struct agenda{
         int tamanho;
-        int ocupação;
-
-        void* evento;
-    }agenda;
+        int ocupacao;
+        void** evento;
+    } agenda;
 
 /* Funções exportadas */
     /* Função: criarAgenda */
         agenda* criarAgenda(int tam);
     /* Função: inserirNaAgenda */
-        void inserirNaAgenda(agenda* a, void* carga, CompararElementos comparar);
+        void inserirNaAgenda(agenda* a, void* carga, compararElementos comparar);
     /* Função: removerDaAgenda */
-        void* removerDaAgenda(agenda* a, CompararElementos comparar);
+        void* removerDaAgenda(agenda* a, compararElementos comparar);
     /* Função: mostrrAgenda */
-        void mostrarAgenda (agenda* a, ImprimirElemento impressora);
+        void mostrarAgenda (agenda* a, imprimirElemento impressora);
