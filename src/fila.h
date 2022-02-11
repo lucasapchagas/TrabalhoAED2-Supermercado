@@ -30,11 +30,11 @@
 
     /* Função inserirFila()
     Argumentos:
-        fila* f -> recebe o objeto fila como argumento.
-        cliente c -> recebe o objeto cliente como argumento.
+        fila* f -> recebe o objeto *f do tipo fila como argumento.
+        cliente c -> recebe o objeto c como argumento.
     Exemplo:
         inserirFila(fila* f, cliente c);
-    Recebe o ponteiro de uma fila e adiciona o objeto cliente nesta fila. */
+    Recebe o ponteiro de uma fila(*f) e adiciona o objeto cliente(c) nesta fila. */
     void inserirFila(fila* f, cliente c);
 
     /* Função removeFila():
@@ -44,7 +44,7 @@
         cliente removeFila(fila *f);
         A função removeFila() recebe o ponteiro de uma fila e 
         então remove o primeiro cliente da fila e retorna esse cliente.
-        No caso de uma fila vazia, retorna apenas void. */
+        No caso de uma fila vazia, não retorna nada. */
     cliente removeFila(fila* f);
 
     /* Função mostrarFila():
