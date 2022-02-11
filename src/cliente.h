@@ -13,30 +13,28 @@
 
     /* Função criarCliente() 
     Argumentos: 
-        char tipo   -> Tipo de Cliente, podendo ser 3 tipos.
+        double chegada    -> O tempo de chegada do cliente, em segundos.
+        unsigned int itens  -> A quantidade de itens a ser comprada.
+        unsigned int tipo   -> Tipo de Cliente, podendo ser 3 tipos.
             1. Eu quero comprar, eu Preciso comprar; 
                 Espera o tempo necessario para efetuar a compra.
             2. Eu quero comprar, mas nao tenho que comprar;
                 Espera no maximo X minutos no expresso (fila + atendimento), depois abandona as compras.
             3. Eu nao quero comprar, mas comparei se o atendimento for agil.
                 Espera no maximo Y minutos na fila, e no maximo Z minutos no atendimento, depois abandona as compras.
-        char pagamento  -> Tipo de pagamento, podendo ser 2 tipos.
-            1. Cartão
-            2. Dinheiro
-        unsigned int chegada    -> O tempo de chegada do cliente, em segundos.
-        unsigned int itens  -> A quantidade de itens a ser comprada.
+        unsigned int tempoPagamento -> Recebe a variável do tempo de pagamento em milissegundos.
     Exemplo:
-        cliente c = criarCLiente(tipo, pagamento, chegada, itens); */
+        cliente c = criarCLiente(double chegada, usigned itens, usigned tipo, usigned tempoPagamento); */
     cliente criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned tempoPagamento);
 
     /* Função mostrarCliente() 
     Argumentos:
         cliente c   -> Recebe um objeto cliente
     Impressão:
-        Tipo de Cliente: X
-        Tipo de Pagamento: Y
-        Hora de Chegada: Z
-        Quantidade de itens: N
+        Hora de Chegada: W
+        Quantidade de itens: X
+        Tipo de Cliente: Y
+        Tempo de Pagamento: Z
     Exemplo: mostrarCliente(Cliente);
     Mostra os dados referentes a um cliente indicado. */
     void mostrarCliente(cliente c);

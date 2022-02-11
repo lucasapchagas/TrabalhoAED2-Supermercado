@@ -3,7 +3,7 @@
 
 #include "caixa.h"
 
-caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned *quantidadeCaixas) {
+caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned* quantidadeCaixas) {
     caixa c;
     c.vetor = NULL;
     c.fatorAgilidade = fatorAgilidade;

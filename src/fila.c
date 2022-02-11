@@ -27,7 +27,7 @@ void inserirFila(fila* f, cliente c) {
     f->fim = no;
 }
 
-cliente removeFila(fila *f) {
+cliente removeFila(fila* f) {
 
     if (f->prim == NULL) {
         return;
@@ -54,7 +54,7 @@ void mostrarFila(fila* f) {
 
 }
 
-int haElementos(fila *p) {
+int haElementos(fila* p) {
     if (p->prim == NULL) {
         return 0;
     }

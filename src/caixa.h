@@ -4,33 +4,32 @@
 #include "cliente.h"
 
 /* Tipos exportados */
-typedef struct caixa{
-    cliente *vetor;
-    unsigned statusVendedor;
-    unsigned fatorAgilidade;
-    unsigned identificacao;
-    double tempoServico;
-} caixa;
+
+    typedef struct caixa{
+        cliente* vetor;
+        unsigned statusVendedor;
+        unsigned fatorAgilidade;
+        unsigned identificacao;
+        double tempoServico;
+    } caixa;
 
 /* Funções exportadas*/
 
 /* Função criarCaixa();
     Argumentos:
-      char:
-        statusVendedor -> recebe o objeto statusVendedor.
-        fatorAgilidade -> recebe o objeto fatorAgilidade.
-      int:
-        identificacao -> recebe o objeto identificacao.
-        tempoServico -> recebe o objeto tempoServico.
+      unsigned int:
+        medidaDeAgilidade -> recebe a variável medidaDeAgilidade com um valor em milissegundos.
+        fatorAgilidade -> recebe a variável fatorAgilidade com um valor entre 1 e 10.
+        quantidadeCaixas -> recebe a variável ponteiro correspondente a quantidade de caixas
     Exemplo:
-         caixa criarCaixa(char statusVendedor, char fatorAgilidade, int identificacao, int tempoServico)
+        caixa criarCaixa(char unsigned int fatorAgilidade, unsigned int medidaDeAgilidade, unsigned int fatorAgilidade)
         Retorna um elemento caixa com os argumentos como características do elemento.
 */
-caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned *quantidadeCaixas);
+caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned* quantidadeCaixas);
 
 /*Função inserirCaixa():
     Argumentos:
-        caixa* c -> recebe o objeto ponteiro caixa como argumento.
+        caixa* c -> recebe a variável ponteiro c como argumento.
         cliente -> recebe uma variável tipo cliente como argumento.
     Exemplo:
         inserirCaixa(caixa* c, cliente Cliente)
