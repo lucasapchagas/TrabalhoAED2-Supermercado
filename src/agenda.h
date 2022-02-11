@@ -6,6 +6,7 @@
     typedef void (imprimirElemento)(void*);
 
     typedef struct agenda{
+        short expande;
         int tamanho;
         int ocupacao;
         void** evento;
