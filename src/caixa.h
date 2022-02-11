@@ -4,13 +4,14 @@
 #include "cliente.h"
 
 /* Tipos exportados */
-typedef struct caixa{
-    cliente *vetor;
-    unsigned statusVendedor;
-    unsigned fatorAgilidade;
-    unsigned identificacao;
-    double tempoServico;
-} caixa;
+
+    typedef struct caixa{
+        cliente* vetor;
+        unsigned statusVendedor;
+        unsigned fatorAgilidade;
+        unsigned identificacao;
+        double tempoServico;
+    } caixa;
 
 /* Funções exportadas*/
 
@@ -26,7 +27,7 @@ typedef struct caixa{
          caixa criarCaixa(char statusVendedor, char fatorAgilidade, int identificacao, int tempoServico)
         Retorna um elemento caixa com os argumentos como características do elemento.
 */
-caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned *quantidadeCaixas);
+caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned* quantidadeCaixas);
 
 /*Função inserirCaixa():
     Argumentos:

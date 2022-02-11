@@ -4,11 +4,11 @@
 #include "caixa.h"
 
 /* Tipos exportados */
-typedef struct evento{
-    double tempo;
-    char tipo;
-    void* carga;
-}evento;
+    typedef struct evento{
+        void* carga;
+        double tempo;
+        unsigned tipo;
+    }evento;
 
 /* Funções Exportadas */
 

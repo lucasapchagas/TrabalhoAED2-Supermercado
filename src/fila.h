@@ -45,7 +45,7 @@
         A função removeFila() recebe o ponteiro de uma fila e 
         então remove o primeiro cliente da fila e retorna esse cliente.
         No caso de uma fila vazia, retorna apenas void. */
-    cliente removeFila(fila *f);
+    cliente removeFila(fila* f);
 
     /* Função mostrarFila():
     Argumentos:
@@ -64,6 +64,6 @@
         int haElementos(fila *f)
         A função haElementos() verifica se o primeiro elemento de 'fila *f' está vazio
         caso esteja retorna 0, caso contrário retorna 1. */
-    int haElementos(fila *f);
+    int haElementos(fila* f);
 
 #endif
