@@ -5,9 +5,9 @@
 
 /* Tipos exportados */
     typedef struct evento{
+        char tipo;
         void* carga;
         double tempo;
-        unsigned tipo;
     } evento;
 
 /* Funções Exportadas */

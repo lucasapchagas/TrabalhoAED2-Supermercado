@@ -1,3 +1,6 @@
+#ifndef AGENDA_H
+#define AGENDA_H
+
 /* Tipos Exportados */
     typedef int (*compararElementos)(void*, void*);
     typedef void (imprimirElemento)(void*);
@@ -17,3 +20,5 @@
         void* removerDaAgenda(agenda* a, compararElementos comparar);
     /* Função: mostrrAgenda */
         void mostrarAgenda (agenda* a, imprimirElemento impressora);
+
+#endif

@@ -5,7 +5,7 @@
 #include "caixa.h"
 #include "evento.h"
 
-int main(void) {
+int main() {
    
     cliente Cliente = criarCliente(28800.483711, 19, 2, 9);
 
