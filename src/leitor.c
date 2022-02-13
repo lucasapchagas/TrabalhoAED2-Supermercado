@@ -78,3 +78,5 @@ void lerTemposDeEspera(int* velocidadeX, int* velocidadeY, int* velocidadeZ) {
     scanf("%d %d %d", velocidadeX, velocidadeY, velocidadeZ);
 
 }
+
+

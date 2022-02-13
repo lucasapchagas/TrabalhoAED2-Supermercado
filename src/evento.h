@@ -27,7 +27,7 @@
         Exemplo:
             evento criarEvento(tipo,tempo,*carga)
     */
-    evento criarEvento(char tipo, double tempo, void* carga);
+    evento* criarEvento(char tipo, double tempo, void* carga);
 
-    void mostrarEvento (evento e);
+    void mostrarEvento(evento* e);
 #endif
