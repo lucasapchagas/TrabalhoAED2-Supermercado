@@ -23,17 +23,10 @@ int main() {
 
     /* Fim do setup inicial */
 
-    cliente Cliente = criarCliente(28800.483711, 19, 2, 9);
+    comparador c;
+    agenda* Agenda = criarAgenda(1000, c);
 
-    evento* e = criarEvento('C', 28800.483711, &Cliente);
-
-    mostrarEvento(e);
-
-    comparador Comparador;
-
-    agenda* a = criarAgenda(0, Comparador);
-
-    inserirNaAgenda(a, e);
+    lerDados(Agenda);
 
     return 0;
 }

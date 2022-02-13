@@ -79,4 +79,23 @@ void lerTemposDeEspera(int* velocidadeX, int* velocidadeY, int* velocidadeZ) {
 
 }
 
+void lerDados(agenda* a) {
+    char c;
+    scanf("%c", &c);
 
+    if (c == 'C') {
+        double x;
+        int y,z,w;
+        scanf("%lf %d %d %d", &x, &y, &z, &w);
+        printf("%lf %d %d %d", x, y, z, w);
+    }
+    else if (c == 'S'){
+        double x;
+        int y,z;
+        scanf("%lf %d %d", &x, &y, &z);
+        printf("%lf %d %d", x, y, z);
+    }
+    else if (c == 'F') {
+        printf("F\n");
+    }
+}
