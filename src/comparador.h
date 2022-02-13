@@ -1,0 +1,1 @@
+int compararEvento(void*,void*);
