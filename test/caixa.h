@@ -2,9 +2,11 @@
 #define CAIXA_H
 
 #include "cliente.h"
+#include "lista.h"
 
 /* Tipos exportados */
 
+    /* Estrutura de Caixa */
     typedef struct caixa{
         cliente* vetor;
         unsigned statusVendedor;
@@ -25,7 +27,7 @@
         caixa criarCaixa(char unsigned int fatorAgilidade, unsigned int medidaDeAgilidade, unsigned int fatorAgilidade)
         Retorna um elemento caixa com os argumentos como características do elemento.
 */
-caixa criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned identificacao);
+caixa* criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned identificacao);
 
 /*Função inserirCaixa():
     Argumentos:
@@ -44,6 +46,8 @@ void inserirCaixa(caixa* c, cliente Cliente);
         mostrarCaixa(caixa c)
         A função recebe o objeto caixa e o retorna.
 */
-void mostrarCaixa(caixa c);
+void mostrarCaixa(caixa* c);
+
+int caixaLivre(lista* caixas, int nCaixas);
 
 #endif

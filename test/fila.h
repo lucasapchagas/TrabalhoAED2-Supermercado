@@ -1,13 +1,13 @@
 #ifndef FILA_H
 #define FILA_H
 
-#include "cliente.h"
+#include "caixa.h"
 /* Tipos Exportados */
 
     typedef struct No No;
 
     struct No {
-        cliente info;
+        caixa info;
         No* prox;
     };
 
@@ -35,7 +35,7 @@
     Exemplo:
         inserirFila(fila* f, cliente c);
     Recebe o ponteiro de uma fila(*f) e adiciona o objeto cliente(c) nesta fila. */
-    void inserirFila(fila* f, cliente c);
+    void inserirFila(fila* f, caixa c);
 
     /* Função removeFila():
     Argumentos:
@@ -45,7 +45,7 @@
         A função removeFila() recebe o ponteiro de uma fila e 
         então remove o primeiro cliente da fila e retorna esse cliente.
         No caso de uma fila vazia, não retorna nada. */
-    cliente removeFila(fila* f);
+    caixa removeFila(fila* f);
 
     /* Função mostrarFila():
     Argumentos:

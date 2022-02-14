@@ -47,3 +47,15 @@ suspensao* criarSuspensao(double tempo, int pvd, int tempoSuspensao) {
 
     return s;
 }
+
+cliente* criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned tempoPagamento) {
+    
+    cliente* c = malloc(sizeof(cliente));;
+
+    c->chegada = chegada;
+    c->itens = itens;
+    c->tipo = tipo;
+    c->tempoPagamento = tempoPagamento;
+    
+    return c;
+}

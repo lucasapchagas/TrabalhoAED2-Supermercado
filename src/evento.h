@@ -1,7 +1,7 @@
 #ifndef EVENTO_H
 #define EVENTO_H
 
-#include "caixa.h"
+#include "comparador.h"
 
 /* Tipos exportados */
     typedef struct evento{
@@ -15,6 +15,14 @@
         int pvd;
         int tempoSuspensao;
     } suspensao;
+
+    typedef struct cliente {
+        double chegada;
+        unsigned itens;
+        unsigned tipo;
+        unsigned tempoPagamento;
+    } cliente;
+
 
 /* Funções Exportadas */
 
@@ -40,4 +48,7 @@
     void* retornaCarga(evento* e);
 
     suspensao* criarSuspensao(double tempo, int pvd, int tempoSuspensao);
+
+    cliente* criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned tempoPagamento);
+
 #endif

@@ -11,7 +11,7 @@ fila* criarFila() {
     return f;
 }
 
-void inserirFila(fila* f, cliente c) {
+void inserirFila(fila* f, caixa c) {
     No* no;
     no = (No*) malloc(sizeof(no));
     no->info = c;
@@ -27,13 +27,14 @@ void inserirFila(fila* f, cliente c) {
     f->fim = no;
 }
 
-cliente removeFila(fila* f) {
+caixa removeFila(fila* f) {
 
+    /*
     if (f->prim == NULL) {
-        return;
-    }
+        return NULL;
+    } */
 
-    cliente c = f->prim->info;
+    caixa c = f->prim->info;
     f->prim = f->prim->prox;
 
     return c;
@@ -44,7 +45,7 @@ void mostrarFila(fila* f) {
  
     if (aux) {
         while(aux) {
-            mostrarCliente(aux->info);
+            mostrarCaixa(aux->info);
             aux = aux->prox;
         }
     }

@@ -4,12 +4,12 @@
 #include <ctype.h>
 
 #include "leitor.h"
-#include "caixa.h"
+
 #include "evento.h"
 
 #define tamMax 100
 
-void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, caixa** caixasLivres, caixa** caixasLivresNovos) {
+void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, lista* caixasLivres, lista* caixasLivresNovos) {
 
     char linha[tamMax];
 
@@ -36,6 +36,7 @@ void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, caixa**
     fgets(linha, tamMax, stdin);
     ++linhaAtual;
 
+    
 
     if (linha[0] == '0' && linhaAtual == 2) {
         *arquivoTipo = 0;
@@ -50,32 +51,38 @@ void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, caixa**
                 *nCaixasNovos += 1;
             }
         }
-
     }
 
-    /* Linha 3: Medida de Agilidade */
+    
 
+
+    /* Linha 3: Medida de Agilidade */
+    
     fgets(linha, tamMax, stdin);
     ++linhaAtual;
+
 
     int medidaAgilidade = atoi(linha);
 
     /* Criando os caixas livres */
-
-    caixa caixasLivresAux[*nCaixas];
-
+    
+    
     for (int c = 0; c < *nCaixas; c++) {
-        caixasLivresAux[c] = criarCaixa(vAgilidade[c], medidaAgilidade, c + 1);
+        
+        caixa* cAux = criarCaixa(vAgilidade[c], medidaAgilidade, c + 1);
+        
+        inserirLista(caixasLivres, cAux);
+        
     }
     
-    *caixasLivres = caixasLivresAux;  
 
     if (*arquivoTipo) {
-        caixa caixasLivresNovosAux[*nCaixasNovos];
         for (int c = 0; c < *nCaixasNovos; c++) {
-            caixasLivresNovosAux[c] = criarCaixa(vAgilidadeNovos[c], medidaAgilidade, c + 1);
-        } 
-        *caixasLivresNovos = caixasLivresNovosAux;       
+    
+            caixa* cAux = criarCaixa(vAgilidade[c], medidaAgilidade, c + 1);
+    
+            inserirLista(caixasLivresNovos, cAux);
+        }    
     }
 
 }
