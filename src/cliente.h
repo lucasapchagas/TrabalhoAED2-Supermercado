@@ -25,7 +25,7 @@
         unsigned int tempoPagamento -> Recebe a variável do tempo de pagamento em milissegundos.
     Exemplo:
         cliente c = criarCLiente(double chegada, usigned itens, usigned tipo, usigned tempoPagamento); */
-    cliente criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned tempoPagamento);
+    cliente* criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned tempoPagamento);
 
     /* Função mostrarCliente() 
     Argumentos:
@@ -37,6 +37,8 @@
         Tempo de Pagamento: Z
     Exemplo: mostrarCliente(Cliente);
     Mostra os dados referentes a um cliente indicado. */
-    void mostrarCliente(cliente c);
+    void mostrarCliente(cliente* c);
+
+    int retornaItens(cliente* c);
 
 #endif

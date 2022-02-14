@@ -5,6 +5,7 @@
 
 #include "leitor.h"
 #include "caixa.h"
+#include "evento.h"
 
 #define tamMax 100
 
@@ -12,17 +13,20 @@ void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, caixa**
 
     char linha[tamMax];
 
+    int linhaAtual = 0;
+
     /* Linha 1: Caixas primários */
 
-    fgets(linha, tamMax, stdin);
-    
     int* vAgilidade = malloc(tamMax * sizeof(int));
 
     int* vAgilidadeNovos = malloc(tamMax * sizeof(int));
 
+    fgets(linha, tamMax, stdin);
+    ++linhaAtual;
+
     for (int c = 0; c < strlen(linha); c++) {
         if (isdigit(linha[c])) {
-            vAgilidade[*nCaixas] = linha[c] - '0';
+            vAgilidade[*nCaixas] = linha[c] - 48;
             *nCaixas += 1;
         }
     }
@@ -30,8 +34,10 @@ void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, caixa**
     /* Linha 2: Caixas novos */
 
     fgets(linha, tamMax, stdin);
+    ++linhaAtual;
 
-    if (linha[0] == '0') {
+
+    if (linha[0] == '0' && linhaAtual == 2) {
         *arquivoTipo = 0;
         printf("Arquivo .original encontrado.\n");
     } else {
@@ -40,7 +46,7 @@ void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, caixa**
         
         for (int c = 0; c < strlen(linha); c++) {
             if (isdigit(linha[c])) {
-                vAgilidadeNovos[*nCaixasNovos] = linha[c] - '0';
+                vAgilidadeNovos[*nCaixasNovos] = linha[c] - 48;
                 *nCaixasNovos += 1;
             }
         }
@@ -50,6 +56,8 @@ void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, caixa**
     /* Linha 3: Medida de Agilidade */
 
     fgets(linha, tamMax, stdin);
+    ++linhaAtual;
+
     int medidaAgilidade = atoi(linha);
 
     /* Criando os caixas livres */
@@ -75,27 +83,57 @@ void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, caixa**
 void lerTemposDeEspera(int* velocidadeX, int* velocidadeY, int* velocidadeZ) {
     
     /* linha 4: Tempos de Espera */
-    scanf("%d %d %d", velocidadeX, velocidadeY, velocidadeZ);
+    char linha[tamMax];
+    fgets(linha, tamMax, stdin);
 
+    sscanf(linha, "%d %d %d", velocidadeX, velocidadeY, velocidadeZ);
 }
 
 void lerDados(agenda* a) {
-    char c;
-    scanf("%c", &c);
 
-    if (c == 'C') {
-        double x;
-        int y,z,w;
-        scanf("%lf %d %d %d", &x, &y, &z, &w);
-        printf("%lf %d %d %d", x, y, z, w);
-    }
-    else if (c == 'S'){
-        double x;
-        int y,z;
-        scanf("%lf %d %d", &x, &y, &z);
-        printf("%lf %d %d", x, y, z);
-    }
-    else if (c == 'F') {
-        printf("F\n");
-    }
+    char linha[tamMax];
+
+    char tipo;
+    double tempo;
+    int x, y, z;
+
+    while (fgets(linha, tamMax, stdin) != NULL) {
+
+        sscanf(linha, "%c", &tipo);
+
+        if (tipo == 'S') {
+            sscanf(linha, "%c %lf %d %d", &tipo, &tempo, &x, &y);
+
+            evento* e = criarEvento('S', tempo, &x);
+
+            inserirNaAgenda(a, &x);
+            //printf("Evento de Suspensão agendado. | Caixa: %lf %d %d\n", tempo, x, y);
+
+            /*
+            if (inserirNaAgenda(a, e)) {
+                printf("Evento de Suspensão agendado.\n");
+            } else {
+                printf("Algo deu errado ao agendar uma Suspensão.\n");
+            } */
+
+        } else if (tipo == 'C') {
+            sscanf(linha, "%c %lf %d %d %d", &tipo ,&tempo, &x, &y, &z);
+
+            cliente* c = criarCliente(tempo, x, y, z);
+            evento* e = criarEvento('C', tempo, c);
+            inserirNaAgenda(a, e);
+
+            // printf("Evento de Chegada de cliente agendado. | Cliente: %lf %d %d %d\n", tempo, x, y, z);
+            /*
+            if (inserirNaAgenda(a, e)) {
+                printf("Evento de Chegada de cliente agendado.\n");
+            } else {
+                printf("Algo deu errado ao agendar um Cliente.\n");
+            }*/
+
+        } else if (tipo == 'F') {
+            //printf("Fim do arquivo.\n");
+        }
+     }
+
 }

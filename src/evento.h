@@ -30,4 +30,6 @@
     evento* criarEvento(char tipo, double tempo, void* carga);
 
     void mostrarEvento(evento* e);
+
+    void* retornaCarga(evento* e);
 #endif

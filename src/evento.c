@@ -21,6 +21,18 @@ void mostrarEvento (evento* e) {
         printf("Evento sem carga\n");
     }
     else{
+
+        if (e->tipo == 'C') {
+            printf("Evento de Cliente\n");
+
+        } else if (e->tipo == 'S') {
+            printf("Evento de Suspensão\n");
+        }
+
         printf("Evento com carga\n");
     }
+}
+
+void* retornaCarga(evento* e) {
+    return e->carga;
 }

@@ -1,5 +1,6 @@
 #include "stdio.h"
 #include "stdlib.h"
+
 #include "heap.h"
 
 struct heap{
@@ -7,15 +8,15 @@ struct heap{
   int tamanho;
   int ocupacao;
 
-  void* *elms; // vetor de ponteiros void
+  void* *elms;
 };
 
-THeap *criar_heap(int tam){
-  THeap *h = malloc(sizeof(THeap));
-  h->expande = (tam==0?1:0); // fals0
+THeap* criar_heap(int tamanhoMaximo){
+  THeap* h = malloc(sizeof(THeap));
+  h->expande = (tamanhoMaximo == 0 ? 1 : 0);
 
-  h->tamanho = (tam>0?tam:1);
-  h->ocupacao=0;
+  h->tamanho = (tamanhoMaximo > 0 ? tamanhoMaximo : 1);
+  h->ocupacao = 0;
 
   h->elms = malloc(sizeof(void*) * h->tamanho);
   return h;

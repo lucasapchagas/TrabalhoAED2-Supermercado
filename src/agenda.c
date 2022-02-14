@@ -1,28 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "heap.h"
 #include "agenda.h"
-#include "heap/heap.h"
 
 struct agenda{
    comparador c;
    THeap *heap;
    int tamanho;
    int tamanhoMaximo;
+   short expande;
 };
 
 agenda* criarAgenda(int tamanhoMaximo, comparador c){
   agenda* a = malloc(sizeof(agenda));
 
+
+  a->expande = (tamanhoMaximo == 0 ? 1 : 0);
   a->c = c;
   a->tamanho= 0;
-  a->tamanhoMaximo = tamanhoMaximo;
+  a->tamanhoMaximo = (tamanhoMaximo > 0 ? tamanhoMaximo : 1);
   a->heap = criar_heap(tamanhoMaximo);
 
   return a;
 }
 
 int inserirNaAgenda(agenda *a, void *carga){
+
+    if( (a->tamanho == a->tamanhoMaximo) && (a->expande) ){
+      a->tamanhoMaximo = a->tamanho*2; //
+      a->heap = realloc(a->heap,sizeof(void*) * a->tamanhoMaximo);
+    }
+
     if ((a!=NULL) && ((a->tamanhoMaximo == 0) || (a->tamanho < a->tamanhoMaximo))){
       THeap* heap = a->heap;;
       
