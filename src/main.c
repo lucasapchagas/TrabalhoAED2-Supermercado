@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "evento.h"
-#include "agenda.h"
+#include "comparador.h"
 #include "leitor.h"
 
 int main() {
@@ -12,8 +11,8 @@ int main() {
     int nCaixas = 0;
     int nCaixasNovos = 0;
     short arquivoTipo;
-    lista* caixas;
-    lista* caixasNovos;
+    lista* caixas = criarlista();
+    lista* caixasNovos = criarlista();
 
     lerSetupCaixas(&nCaixas, &nCaixasNovos, &arquivoTipo, caixas, caixasNovos);
 
@@ -37,17 +36,10 @@ int main() {
         }
 
         if (e->tipo == 'C') {
-
-            //int c = caixaLivre(caixas, nCaixas);
-
-            /*
-            if (c) {
             
-                //fecharCaixa(caixas, c);
-            } */
-
         } else if (e->tipo == 'S'){
-
+            suspensao* s = e->carga;
+            fecharCaixa(caixas, s->pvd);
         }
 
     }

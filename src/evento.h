@@ -1,8 +1,6 @@
 #ifndef EVENTO_H
 #define EVENTO_H
 
-#include "comparador.h"
-
 /* Tipos exportados */
     typedef struct evento{
         char tipo;

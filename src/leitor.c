@@ -36,8 +36,6 @@ void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, lista* 
     fgets(linha, tamMax, stdin);
     ++linhaAtual;
 
-    
-
     if (linha[0] == '0' && linhaAtual == 2) {
         *arquivoTipo = 0;
         printf("Arquivo .original encontrado.\n");
@@ -53,9 +51,6 @@ void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, lista* 
         }
     }
 
-    
-
-
     /* Linha 3: Medida de Agilidade */
     
     fgets(linha, tamMax, stdin);
@@ -66,25 +61,17 @@ void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, lista* 
 
     /* Criando os caixas livres */
     
-    
     for (int c = 0; c < *nCaixas; c++) {
-        
         caixa* cAux = criarCaixa(vAgilidade[c], medidaAgilidade, c + 1);
-        
         inserirLista(caixasLivres, cAux);
-        
     }
     
-
     if (*arquivoTipo) {
         for (int c = 0; c < *nCaixasNovos; c++) {
-    
             caixa* cAux = criarCaixa(vAgilidade[c], medidaAgilidade, c + 1);
-    
             inserirLista(caixasLivresNovos, cAux);
         }    
     }
-
 }
 
 void lerTemposDeEspera(int* velocidadeX, int* velocidadeY, int* velocidadeZ) {
