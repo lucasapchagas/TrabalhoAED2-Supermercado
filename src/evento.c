@@ -36,3 +36,14 @@ void mostrarEvento (evento* e) {
 void* retornaCarga(evento* e) {
     return e->carga;
 }
+
+suspensao* criarSuspensao(double tempo, int pvd, int tempoSuspensao) {
+    
+    suspensao* s = malloc(sizeof(suspensao));
+
+    s->tempo = pvd;
+    s->tempo = tempo;
+    s->tempo = tempoSuspensao;
+
+    return s;
+}

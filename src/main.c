@@ -11,8 +11,6 @@ int main() {
    
     /* Setup inicial do programa */
     
-    
-
     int nCaixas = 0;
     int nCaixasNovos = 0;
     short arquivoTipo;
@@ -29,10 +27,7 @@ int main() {
     
     lerDados(Agenda);
     
-    int i = 0;
     while(tamanhoAgenda(Agenda)) {
-        ++i;
-        printf("%d\n", i);
         evento* e = removerDaAgenda(Agenda);
         
     }

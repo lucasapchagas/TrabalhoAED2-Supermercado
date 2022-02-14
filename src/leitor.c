@@ -104,35 +104,21 @@ void lerDados(agenda* a) {
         if (tipo == 'S') {
             sscanf(linha, "%c %lf %d %d", &tipo, &tempo, &x, &y);
 
-            evento* e = criarEvento('S', tempo, &x);
+            suspensao* s = criarSuspensao(tempo, x, y);
+            evento* e = criarEvento('S', tempo, s);
 
-            inserirNaAgenda(a, &x);
-            //printf("Evento de Suspensão agendado. | Caixa: %lf %d %d\n", tempo, x, y);
-
-            /*
-            if (inserirNaAgenda(a, e)) {
-                printf("Evento de Suspensão agendado.\n");
-            } else {
-                printf("Algo deu errado ao agendar uma Suspensão.\n");
-            } */
+            inserirNaAgenda(a, s);
 
         } else if (tipo == 'C') {
             sscanf(linha, "%c %lf %d %d %d", &tipo ,&tempo, &x, &y, &z);
 
             cliente* c = criarCliente(tempo, x, y, z);
             evento* e = criarEvento('C', tempo, c);
+            
             inserirNaAgenda(a, e);
 
-            // printf("Evento de Chegada de cliente agendado. | Cliente: %lf %d %d %d\n", tempo, x, y, z);
-            /*
-            if (inserirNaAgenda(a, e)) {
-                printf("Evento de Chegada de cliente agendado.\n");
-            } else {
-                printf("Algo deu errado ao agendar um Cliente.\n");
-            }*/
-
         } else if (tipo == 'F') {
-            //printf("Fim do arquivo.\n");
+            
         }
      }
 

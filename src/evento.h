@@ -10,6 +10,12 @@
         double tempo;
     } evento;
 
+    typedef struct suspensao {
+        double tempo;
+        int pvd;
+        int tempoSuspensao;
+    } suspensao;
+
 /* Funções Exportadas */
 
     /* Função criarEvento();
@@ -32,4 +38,6 @@
     void mostrarEvento(evento* e);
 
     void* retornaCarga(evento* e);
+
+    suspensao* criarSuspensao(double tempo, int pvd, int tempoSuspensao);
 #endif
