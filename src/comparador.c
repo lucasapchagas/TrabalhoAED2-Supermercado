@@ -14,9 +14,9 @@ int compararEvento(void *evento1, void *evento2){
   }else if(e1->tempo > e2->tempo){
           return 1;
   }else{
-    if( (e1->tipo==0) && (e2->tipo == 1) ){
+    if( (e1->tipo=='S') && (e2->tipo == 'C') ){
       return -1;
-    }else if ( (e2->tipo == 0) && (e1->tipo == 1) ){
+    }else if ( (e2->tipo == 'S') && (e1->tipo == 'C') ){
         return 1;
     }else{
       return 0;
