@@ -49,4 +49,5 @@
 
     cliente* criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned tempoPagamento);
 
+    int retornaIdSuspensao(suspensao* s);
 #endif

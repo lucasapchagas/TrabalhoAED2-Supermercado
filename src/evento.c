@@ -41,9 +41,9 @@ suspensao* criarSuspensao(double tempo, int pvd, int tempoSuspensao) {
     
     suspensao* s = malloc(sizeof(suspensao));
 
-    s->tempo = pvd;
     s->tempo = tempo;
-    s->tempo = tempoSuspensao;
+    s->pvd = pvd;
+    s->tempoSuspensao = tempoSuspensao;
 
     return s;
 }
@@ -58,4 +58,10 @@ cliente* criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned te
     c->tempoPagamento = tempoPagamento;
     
     return c;
+
+}
+
+int retornaIdSuspensao(suspensao* s) { 
+    suspensao* sus = s;
+    return s->pvd;
 }

@@ -101,14 +101,14 @@ void lerDados(agenda* a) {
             suspensao* s = criarSuspensao(tempo, x, y);
             evento* e = criarEvento('S', tempo, s);
 
-            inserirNaAgenda(a, s);
+            inserirNaAgenda(a, e);
 
         } else if (tipo == 'C') {
             sscanf(linha, "%c %lf %d %d %d", &tipo ,&tempo, &x, &y, &z);
 
             cliente* c = criarCliente(tempo, x, y, z);
             evento* e = criarEvento('C', tempo, c);
-            
+
             inserirNaAgenda(a, e);
 
         } else if (tipo == 'F') {

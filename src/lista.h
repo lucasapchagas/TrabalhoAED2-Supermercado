@@ -25,6 +25,7 @@ typedef struct lista
 {
     No* prim;
     No* ult;
+    int tam;
 } lista;
 
 
@@ -43,5 +44,7 @@ caixa* criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned 
 void inserirCaixa(caixa* c, cliente* Cliente);
 
 void mostrarCaixa(caixa* c);
+
+void mostrarCaixas(lista* caixas);
 
 #endif

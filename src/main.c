@@ -21,7 +21,6 @@ int main() {
     lerTemposDeEspera(&velocidadeX, &velocidadeY, &velocidadeZ);
     
     /* Fim do setup inicial */
-
     agenda* Agenda = criarAgenda(0, compararEvento);
 
     lerDados(Agenda);
@@ -29,6 +28,7 @@ int main() {
     double relogio = 0;
 
     while(tamanhoAgenda(Agenda)) {
+
         evento* e = removerDaAgenda(Agenda);
         
         if (relogio == 0) {
@@ -36,13 +36,14 @@ int main() {
         }
 
         if (e->tipo == 'C') {
-            
+
         } else if (e->tipo == 'S'){
-            suspensao* s = e->carga;
-            fecharCaixa(caixas, s->pvd);
+            
         }
 
     }
+
+    printf("%lf tempo\n", relogio);
 
     return 0;
 }

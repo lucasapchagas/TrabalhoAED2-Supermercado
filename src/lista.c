@@ -4,81 +4,76 @@
 #include "lista.h"
 #include "comparador.h"
 
-lista* criarlista()
-{
+lista* criarlista() {
     lista* l;
     l = malloc(sizeof(lista));
     l->prim = NULL;
     l->ult = NULL;
+    l->tam = 0;
     return l;
 }
 
-void inserirLista(lista* l, void* c)
-{
+void inserirLista(lista* l, void* c) {
     No* no;
     no = (No*) malloc(sizeof(no));
     no->Caixa = c;
 
-    if (l->prim == NULL)
-    {
+    if (l->prim == NULL) {
         no->ant = NULL;
         no->prox = NULL;
         l->prim = no;
         l->ult = no;
+        l->tam++;
     }
-    else
-    {
+    else {
         no->ant = NULL;
         no->prox = l->prim;
         l->prim = no;
+        l->tam++;
     }
 
 }
 
 
-int removerLista(lista *l, int chave)
-{
+int removerLista(lista *l, int chave) {
     No *aux, *ant;
-    if(l->prim)
-    {
+    if (l->prim) {
         aux = l->prim;
         caixa * c = aux->Caixa;
 
-        if (c->identificacao == chave)
-        {
+        if (c->identificacao == chave) {
 
-            if (l->prim == l->ult)
-            {
+            if (l->prim == l->ult) {
                 l->prim = NULL;
                 l->ult = NULL;
             }
 
             l->prim = aux->prox;
             free(aux);
+            l->tam--;
             return 1;
         }
-        else if (c->identificacao == chave)
-        {
+        else if (c->identificacao == chave) {
             aux = l->ult;
             l->ult = aux->ant;
             l->ult->prox = NULL;
             free(aux);
+            l->tam--;
             return 1;
         }
-        else
-        {
+        else {
             aux = aux->prox;
-            while (aux != l->ult)
-            {
+            while (aux != l->ult) {
                 c = aux;
 
-                if (c->identificacao == chave)
-                {
+                if (c->identificacao == chave) {
                     aux->ant->prox = aux->prox;
                     aux->prox->ant = aux->ant;
                     free(aux);
+                    l->tam--;
                     return 1;
                 }
+
                 aux = aux->prox;
             }
         }
@@ -87,18 +82,17 @@ int removerLista(lista *l, int chave)
 }
 
 void fecharCaixa(lista* caixas, int chave){
-    No* aux = caixas->prim; 
-
-    while (aux != caixas->ult) {
+    No* aux = caixas->prim;             
+    do {
         caixa* c = aux->Caixa;
         if (c->statusVendedor == 0 && c->identificacao == chave) {
-            printf("Caixa fechado.\n");
             c->statusVendedor = 1;
+            printf("Caixa fechado utilizando seu id\n");
         }
         else {
             aux = aux->prox;
         }
-    }
+    } while (aux);
 }
 
 int caixaLivre(lista* caixas, int chave) {
@@ -107,7 +101,7 @@ int caixaLivre(lista* caixas, int chave) {
 
     No* aux = caixas->prim;
 
-    while (aux != caixas->ult) {
+    do {
         caixa* c = aux->Caixa;
 
         if (c->statusVendedor == 0 && c->identificacao == id && id) {
@@ -118,7 +112,7 @@ int caixaLivre(lista* caixas, int chave) {
             return id;   
         }
         aux = aux->prox;
-    }
+    } while (aux);
 
     return id;
 }
@@ -155,5 +149,18 @@ void mostrarCaixa(caixa* c) {
     printf("Fator de Agilidade: %u\n", c->fatorAgilidade);
     printf("Identificação: %u\n", c->identificacao);
     printf("Tempo de serviço: %lf\n", c->tempoServico);
+
+}
+
+void mostrarCaixas(lista* caixas) {
+    No* aux = caixas->prim;
+
+    printf("Tamanho da lista: %d\n", caixas->tam);
+
+    do {
+        caixa* c = aux->Caixa;
+        printf("Caixa de id: %d registrado\n", c->identificacao);
+        aux = aux->prox;
+    } while (aux);
 
 }
