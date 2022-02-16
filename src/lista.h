@@ -129,4 +129,21 @@ void mostrarCaixa(caixa* c);
 */
 void mostrarCaixas(lista* caixas);
 
+caixa* retornaCaixa(lista* caixas, int chave);
+
+unsigned retornarFatorAgilidade(caixa* c);
+
+unsigned retornarIdPdv(caixa* c);
+
+unsigned retornarStatusPdv(caixa* c);
+
+double retornarTempoServico(caixa* c);
+
+void mudarFatorAgilidade(caixa* c, unsigned valor);
+
+void mudarIdPdv(caixa* c, unsigned valor);
+
+void mudarStatusPdv(caixa* c, unsigned valor);
+
+void mudarTempoServico(caixa* c, double valor);
 #endif

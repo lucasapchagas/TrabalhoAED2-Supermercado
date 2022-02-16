@@ -61,7 +61,79 @@ cliente* criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned te
 
 }
 
+// gets do Cliente
+
+unsigned retornaTempoPagamento(cliente* c){
+    cliente* Cliente = c;
+    return c->tempoPagamento;
+}
+
+unsigned retornaTipoCliente(cliente* c){
+    cliente* Cliente = c;
+    return c->tipo;
+}
+
+double retornaChegada(cliente* c){
+    cliente* Cliente = c;
+    return c->chegada;
+}
+
+unsigned retornaItens(cliente* c){
+    cliente* Cliente = c;
+    return c->itens;
+}
+
+// sets do Cliente
+
+void mudarTempoPagamento(cliente* c, unsigned valor){
+    cliente* Cliente = c;
+    Cliente->tempoPagamento = valor;
+}
+
+void mudarTipoCliente(cliente* c, unsigned valor){
+    cliente* Cliente = c;
+    Cliente->tipo = valor;
+}
+
+void mudarChegada(cliente* c, double valor){
+    cliente* Cliente = c;
+    Cliente->chegada = valor;
+}
+
+void mudarItens(cliente* c, unsigned valor){
+    cliente* Cliente = c;
+    Cliente->itens = valor;
+}
+
+// gets de suspensão
+
+double retornaTempoSuspensao(suspensao* s) { 
+    suspensao* sus = s;
+    return s->tempo;
+}
+
+int retornaTempoDeSuspensao(suspensao* s) { 
+    suspensao* sus = s;
+    return s->tempoSuspensao;
+}
+
 int retornaIdSuspensao(suspensao* s) { 
     suspensao* sus = s;
     return s->pvd;
+}
+
+// sets de suspensão
+void mudarTempoSuspensao(suspensao* s, double valor){
+    suspensao* Suspensao = s;
+    Suspensao->tempo = valor;
+}
+
+void mudarTempoDeSuspensao(suspensao* s, int valor){
+    suspensao* Suspensao = s;
+    Suspensao->tempoSuspensao = valor;
+}
+
+void mudarIdSuspensao(suspensao* s, int valor){
+    suspensao* Suspensao = s;
+    Suspensao->pvd = valor;
 }
