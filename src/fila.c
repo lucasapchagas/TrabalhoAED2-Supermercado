@@ -43,7 +43,7 @@ cliente* removeFila(fila *f) {
     }
 
     dado = aux->Cliente;
-    free(aux);
+    //free(aux);
     return dado;
 }
 

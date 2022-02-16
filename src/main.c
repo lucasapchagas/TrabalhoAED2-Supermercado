@@ -22,7 +22,7 @@ int main() {
     lerTemposDeEspera(&velocidadeX, &velocidadeY, &velocidadeZ);
     
     /* Fim do setup inicial */
-    agenda* Agenda = criarAgenda(0, compararEvento);
+    agenda* Agenda = criarAgenda(compararEvento);
 
     lerDados(Agenda);
     
@@ -30,18 +30,21 @@ int main() {
 
     fila* clientes = criarFila();
 
-    while(tamanhoAgenda(Agenda)) {
+    while(tamanhoAgenda(Agenda) > 0) {
 
         evento* e = removerDaAgenda(Agenda);
         relogio = e->tempo;
+
+        printf("Evento %c no tempo %lf\n", e->tipo, relogio);
+        printf("Tamanho da fila de clientes %d\n", tamanhoFila(clientes));
+        printf("Tamanho da agenda de eventos %d\n", tamanhoAgenda(Agenda));
 
         if (e->tipo == 'C') { // Chegada de cliente
         
             cliente* Cliente = retornaCliente(retornaCarga(e));
             inserirFila(clientes, Cliente);
-            int livre = caixaLivre(caixas, 0);
-
-            if (tamanhoFila(clientes) == 1 && livre) {
+            
+            if (tamanhoFila(clientes) == 1 && caixaLivre(caixas, 0)) {
                 e = criarEvento('I', relogio, NULL);
                 inserirNaAgenda(Agenda, e);
             }
@@ -49,36 +52,41 @@ int main() {
         } else if (e->tipo == 'S'){
             suspensao* Suspensao = retornaSuspensao(retornaCarga(e));
             int id = retornaIdSuspensao(Suspensao);
-            caixa* Caixa = retornaCaixa(caixas, id);
-            double tempo = (double) retornaTempoDeSuspensao(Suspensao) * 60000.0;
-            mudarStatusPdv(Caixa, 1);
-            suspensao* r = criarSuspensao(tempo, id, 15);
-            e = criarEvento('R', tempo, r);
-            inserirNaAgenda(Agenda, e);
+
+            if (id <= nCaixas) {
+                caixa* Caixa = retornaCaixa(caixas, id);
+                double tempo = (double) retornaTempoDeSuspensao(Suspensao) * 60.0 + relogio;
+                mudarStatusPdv(Caixa, 1);
+                suspensao* r = criarSuspensao(tempo, id, 15);
+                e = criarEvento('R', tempo, r);
+                inserirNaAgenda(Agenda, e);
+            }
+
         } else if (e->tipo == 'I') {
             int livre = caixaLivre(caixas, 0);
+            caixa* Caixa = retornaCaixa(caixas, livre);
 
-            if (livre) {
-                caixa* Caixa = retornaCaixa(caixas, livre);
-                mudarStatusPdv(Caixa, 2);
-                cliente* Cliente = removeFila(clientes);
-                inserirCaixa(Caixa, Cliente);
-                double tempo = relogio + (double) retornarFatorAgilidade(Caixa) * (double) retornaItens(Cliente) + (double) retornaTempoPagamento(Cliente);
-                suspensao* f = criarSuspensao(tempo, livre, 0);
-                e = criarEvento('F', tempo, f);
-                inserirNaAgenda(Agenda, e);
+            if (Caixa != NULL) {
+                if (tamanhoFila(clientes) > 0) {
+                    mudarStatusPdv(Caixa, 2);
+                    cliente* Cliente = removeFila(clientes);
+                    inserirCaixa(Caixa, Cliente);
+                    double tempo = relogio + (double) retornarFatorAgilidade(Caixa) * (double) retornaItens(Cliente) + (double) retornaTempoPagamento(Cliente);
+                    
+                    suspensao* f = criarSuspensao(tempo, livre, 0);
+                    e = criarEvento('F', tempo, f);
+                    inserirNaAgenda(Agenda, e);
+                }
             }
             
         } else if (e->tipo == 'F') {
             suspensao* c = retornaSuspensao(e->carga);
             caixa* Caixa = retornaCaixa(caixas, retornaIdSuspensao(c));
-            mudarStatusPdv(Caixa, 0);
-
-            removerCaixa(Caixa);
-
-            cliente* Cliente = removeFila(clientes);
             
-            if (tamanhoFila(clientes)) {
+            mudarStatusPdv(Caixa, 0);
+            removerCaixa(Caixa);
+            
+            if (tamanhoFila(clientes) > 0) {
                 e = criarEvento('I', relogio, NULL);
                 inserirNaAgenda(Agenda, e);
             }

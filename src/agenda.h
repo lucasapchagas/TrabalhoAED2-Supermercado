@@ -16,7 +16,7 @@ typedef int (* comparador)(void*, void*);
             de acordo com os argumentos especificados pelas variáveis:
             tamanhoMaximo do tipo int e c do tipo comparador.
 */
-agenda* criarAgenda(int tamanhoMaximo, comparador c);
+agenda* criarAgenda(comparador c);
 
 
 

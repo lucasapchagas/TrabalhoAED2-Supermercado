@@ -111,7 +111,7 @@ void lerDados(agenda* a) {
             inserirNaAgenda(a, e);
 
         } else if (tipo == 'F') {
-            
+            break;
         }
      }
 
