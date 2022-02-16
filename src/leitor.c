@@ -56,7 +56,6 @@ void lerSetupCaixas(int* nCaixas, int* nCaixasNovos, short* arquivoTipo, lista* 
     fgets(linha, tamMax, stdin);
     ++linhaAtual;
 
-
     int medidaAgilidade = atoi(linha);
 
     /* Criando os caixas livres */

@@ -36,14 +36,25 @@ int main() {
         }
 
         if (e->tipo == 'C') {
+            int livre = caixaLivre(caixas, 0);
+            if (livre) {
+                caixa* Caixa = retornaCaixa(caixas, livre);
+                cliente* Cliente = retornaCarga(e->carga);
+
+                relogio = e->tempo;
+                double test = (double) Cliente->tempoPagamento;
+                printf("%lf\n", test);
+                //Caixa->tempoServico = Caixa->fatorAgilidade * medidaAgilidade * Cliente->itens + Cliente->tempoPagamento;
+
+                inserirCaixa(Caixa, Cliente);
+                fecharCaixa(caixas, livre);
+            }
 
         } else if (e->tipo == 'S'){
             
         }
 
     }
-
-    printf("%lf tempo\n", relogio);
 
     return 0;
 }

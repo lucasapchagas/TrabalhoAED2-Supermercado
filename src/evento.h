@@ -50,4 +50,30 @@
     cliente* criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned tempoPagamento);
 
     int retornaIdSuspensao(suspensao* s);
+
+    int retornaTempoDeSuspensao(suspensao* s);
+
+    double retornaTempoSuspensao(suspensao* s);
+
+    void mudarIdSuspensao(suspensao* s, int valor);
+
+    void mudarTempoDeSuspensao(suspensao* s, int valor);
+    
+    void mudarTempoSuspensao(suspensao* s, double valor);
+
+    unsigned retornaTempoPagamento(cliente* c);
+
+    unsigned retornaTipoCliente(cliente* c);
+
+    double retornaChegada(cliente* c);
+
+    unsigned retornaItens(cliente* c);
+
+    void mudarTempoPagamento(cliente* c, unsigned valor);
+
+    void mudarTipoCliente(cliente* c, unsigned valor);
+
+    void mudarChegada(cliente* c, double valor);
+
+    void mudarItens(cliente* c, unsigned valor);
 #endif

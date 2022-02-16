@@ -208,3 +208,19 @@ void mudarTempoServico(caixa* c, double valor){
     caixa* Caixa = c;
     Caixa->tempoServico = valor;
 }
+
+caixa* retornaCaixa(lista* caixas, int chave) {
+
+    No* aux = caixas->prim;
+
+    do {
+        caixa* c = aux->Caixa;
+
+        if (c->identificacao == chave) {
+            return c;
+        }
+
+        aux = aux->prox;
+    } while (aux);
+
+}
