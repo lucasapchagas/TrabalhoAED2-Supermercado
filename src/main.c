@@ -53,13 +53,15 @@ int main() {
             suspensao* Suspensao = retornaSuspensao(retornaCarga(e));
             int id = retornaIdSuspensao(Suspensao);
 
-            if (id <= nCaixas) {
+            if (id <= nCaixas && id != 4) {
                 caixa* Caixa = retornaCaixa(caixas, id);
-                double tempo = (double) retornaTempoDeSuspensao(Suspensao) * 60.0 + relogio;
+                double tempo = 900.0 + relogio;
+                if (!retornarStatusPdv(Caixa) == 2) {
+                    suspensao* r = criarSuspensao(tempo, id, 15);
+                    e = criarEvento('R', tempo, r);
+                    inserirNaAgenda(Agenda, e);
+                }
                 mudarStatusPdv(Caixa, 1);
-                suspensao* r = criarSuspensao(tempo, id, 15);
-                e = criarEvento('R', tempo, r);
-                inserirNaAgenda(Agenda, e);
             }
 
         } else if (e->tipo == 'I') {
@@ -83,6 +85,13 @@ int main() {
             suspensao* c = retornaSuspensao(e->carga);
             caixa* Caixa = retornaCaixa(caixas, retornaIdSuspensao(c));
             
+            if (retornarStatusPdv(Caixa) == 1) {
+                suspensao* r = criarSuspensao(relogio, retornarIdPdv(Caixa), 15);
+                double tempo = 900.0 + relogio;
+                e = criarEvento('R', tempo, r);
+                inserirNaAgenda(Agenda, e);
+            }
+
             mudarStatusPdv(Caixa, 0);
             removerCaixa(Caixa);
             
