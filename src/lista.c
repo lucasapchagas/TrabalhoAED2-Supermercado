@@ -164,3 +164,47 @@ void mostrarCaixas(lista* caixas) {
     } while (aux);
 
 }
+
+// gets do Caixa
+
+unsigned retornarFatorAgilidade(caixa* c){
+    caixa* Caixa = c;
+    return c->fatorAgilidade;
+}
+
+unsigned retornarIdPdv(caixa* c){
+    caixa* Caixa = c;
+    return c->identificacao;
+}
+
+unsigned retornarStatusPdv(caixa* c){
+    caixa* Caixa = c;
+    return c->statusVendedor;
+}
+
+double retornarTempoServico(caixa* c){
+    caixa* Caixa = c;
+    return c->tempoServico;
+}
+
+// sets do Caixa
+
+void mudarFatorAgilidade(caixa* c, unsigned valor){
+    caixa* Caixa = c;
+    Caixa->fatorAgilidade = valor;
+}
+
+void mudarIdPdv(caixa* c, unsigned valor){
+    caixa* Caixa = c;
+    Caixa->identificacao = valor;
+}
+
+void mudarStatusPdv(caixa* c, unsigned valor){
+    caixa* Caixa = c;
+    Caixa->statusVendedor = valor;
+}
+
+void mudarTempoServico(caixa* c, double valor){
+    caixa* Caixa = c;
+    Caixa->tempoServico = valor;
+}
