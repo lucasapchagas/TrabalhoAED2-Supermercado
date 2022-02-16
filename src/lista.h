@@ -47,4 +47,6 @@ void mostrarCaixa(caixa* c);
 
 void mostrarCaixas(lista* caixas);
 
+caixa* retornaCaixa(lista* caixas, int chave);
+
 #endif

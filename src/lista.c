@@ -164,3 +164,19 @@ void mostrarCaixas(lista* caixas) {
     } while (aux);
 
 }
+
+caixa* retornaCaixa(lista* caixas, int chave) {
+
+    No* aux = caixas->prim;
+
+    do {
+        caixa* c = aux->Caixa;
+
+        if (c->identificacao == chave) {
+            return c;
+        }
+
+        aux = aux->prox;
+    } while (aux);
+
+}
