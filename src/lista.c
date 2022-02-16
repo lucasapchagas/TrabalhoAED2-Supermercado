@@ -35,11 +35,11 @@ void inserirLista(lista* l, void* c) {
 }
 
 
-int removerLista(lista *l, int chave) {
+int removerCaixaLista(lista *l, int chave) {
     No *aux, *ant;
     if (l->prim) {
         aux = l->prim;
-        caixa * c = aux->Caixa;
+        caixa* c = aux->Caixa;
 
         if (c->identificacao == chave) {
 
@@ -135,6 +135,15 @@ void inserirCaixa(caixa* c, cliente* Cliente) {
     }
 
     c->vetor = Cliente;
+}
+
+void removerCaixa(caixa* c) {
+
+    if (c->vetor == NULL) {
+        return;
+    }
+
+    c->vetor = NULL;
 }
 
 void mostrarCaixa(caixa* c) {

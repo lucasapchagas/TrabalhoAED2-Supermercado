@@ -48,6 +48,11 @@ suspensao* criarSuspensao(double tempo, int pvd, int tempoSuspensao) {
     return s;
 }
 
+void* retornaSuspensao(suspensao* s) {
+    suspensao* aux = s;
+    return aux;
+}
+
 cliente* criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned tempoPagamento) {
     
     cliente* c = malloc(sizeof(cliente));;
@@ -136,4 +141,9 @@ void mudarTempoDeSuspensao(suspensao* s, int valor){
 void mudarIdSuspensao(suspensao* s, int valor){
     suspensao* Suspensao = s;
     Suspensao->pvd = valor;
+}
+
+void* retornaCliente(cliente* c) {
+    cliente* aux = c;
+    return aux;
 }

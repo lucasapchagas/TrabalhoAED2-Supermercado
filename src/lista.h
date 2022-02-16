@@ -14,15 +14,13 @@ typedef struct caixa{
     double tempoServico;
 } caixa;
 
-struct No
-{
+struct No {
     void* Caixa;
     No* prox;
     No* ant;
 };
 
-typedef struct lista
-{
+typedef struct lista {
     No* prim;
     No* ult;
     int tam;
@@ -33,7 +31,7 @@ lista* criarlista();
 
 void inserirLista(lista* l, void* c);
 
-int removerLista(lista* l, int chave);
+int removerCaixaLista(lista* l, int chave);
 
 void fecharCaixa(lista* caixas, int chave);
 
@@ -42,6 +40,8 @@ int caixaLivre(lista* caixas, int chave);
 caixa* criarCaixa(unsigned fatorAgilidade, unsigned medidaDeAgilidade, unsigned identificacao);
 
 void inserirCaixa(caixa* c, cliente* Cliente);
+
+void removerCaixa(caixa* c);
 
 void mostrarCaixa(caixa* c);
 

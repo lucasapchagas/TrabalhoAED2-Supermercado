@@ -47,7 +47,11 @@
 
     suspensao* criarSuspensao(double tempo, int pvd, int tempoSuspensao);
 
+    void* retornaSuspensao(suspensao* s);
+
     cliente* criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned tempoPagamento);
+
+    void* retornaCliente(cliente* c);
 
     int retornaIdSuspensao(suspensao* s);
 
@@ -76,4 +80,5 @@
     void mudarChegada(cliente* c, double valor);
 
     void mudarItens(cliente* c, unsigned valor);
+    
 #endif

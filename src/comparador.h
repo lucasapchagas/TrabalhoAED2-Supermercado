@@ -4,6 +4,5 @@
 #include "lista.h"
 
 int compararEvento(void*, void*);
-int compararCaixa(void*, void*);
 
 #endif

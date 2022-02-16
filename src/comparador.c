@@ -22,17 +22,3 @@ int compararEvento(void *evento1, void *evento2){
         }
     }
 }
-
-int compararCaixa(void* caixa1, void* caixa2) {
-    caixa* c1 = caixa1;
-    caixa* c2 = caixa2;
-
-    if (c1->statusVendedor < c2->statusVendedor) {
-        return -1;
-    } else if (c1->statusVendedor > c2->statusVendedor) {
-        return 1;
-    } else {
-        return 0;
-    }
-
-}
