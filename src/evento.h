@@ -22,8 +22,6 @@
     } cliente;
 
 
-/* Funções Exportadas */
-
     /* Função criarEvento();
         Argumentos:
             char:
@@ -41,10 +39,38 @@
     */
     evento* criarEvento(char tipo, double tempo, void* carga);
 
+
+    /* Função mostrarEvento();
+        Argumentos:
+            evento:
+                - e (exemplo de nome);
+        Exemplo:
+            void* mostrarEvento(evento* e);
+            A função retorna o evento.
+    */
     void mostrarEvento(evento* e);
 
+    /* Função retornaCarga();
+        Argumentos:
+            evento:
+                - e (exemplo de nome);
+        Exemplo:
+            void* retornaCarga(evento* e);
+            A função retorna a carga de um evento.
+    */
     void* retornaCarga(evento* e);
 
+    /* Função criarSuspensao();
+        Argumentos:
+            double:
+                - tempo;
+            int:
+                - pvd;
+                - tempoSuspensao;
+        Exemplo:
+            suspensao* criarSupensao(double tempo, int pvd, int tempoSuspensao);
+            A função cria uma suspensão de atendimento.
+    */
     suspensao* criarSuspensao(double tempo, int pvd, int tempoSuspensao);
 
     void* retornaSuspensao(suspensao* s);
@@ -53,6 +79,28 @@
 
     void* retornaCliente(cliente* c);
 
+    /* Função criarCliente();
+        Argumentos:
+            double:
+                - chegada;
+            unsigned int:
+                - itens;
+                - tipo;
+                -tempoPagamento;
+        Exemplo:
+            cliente* criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned tempPagamento);
+            A função cria um cliente.
+    */
+    cliente* criarCliente(double chegada, unsigned itens, unsigned tipo, unsigned tempoPagamento);
+
+    /* Função retornaIdSuspensao();
+        Argumentos:
+            suspensao:
+                - s (exemplo de nome);
+        Exemplo:
+            int retornaIdSuspensao(suspensao* s);
+            A função retorna o id da suspensão.
+    */
     int retornaIdSuspensao(suspensao* s);
 
     int retornaTempoDeSuspensao(suspensao* s);
